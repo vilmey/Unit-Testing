@@ -55,6 +55,13 @@ Thumbs.db
 *.dll
 *.lib
 *.sbr
+#Ignore MCUXpresso Files
+*.launch
 
-#Ignore documents
-*.pdf
+#Ignore Folders
+**/Debug/
+**/HostBuild/
+**/UnitTestingTarget/
+**/.settings/
+**/.test/
+**/build_test/
