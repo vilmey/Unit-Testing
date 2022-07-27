@@ -1,0 +1,3 @@
+---
+- Sources/App/Device/Components/Shell/Utils/shellUtils.h
+- "/var/lib/gems/2.7.0/gems/ceedling-0.31.1/vendor/unity/src/unity.c"

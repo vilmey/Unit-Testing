@@ -1,0 +1,72 @@
+---
+:source:
+  :path: Tests
+  :file: test_shell.c
+:successes:
+- :test: test_InitShellNullArgument
+  :line: 28
+  :message: ''
+  :unity_test_time: 0
+- :test: test_InitShellValidArgument
+  :line: 32
+  :message: ''
+  :unity_test_time: 0
+- :test: test_Shell_getChar_NewLine
+  :line: 36
+  :message: ''
+  :unity_test_time: 0
+- :test: test_Shell_getChar_h
+  :line: 41
+  :message: ''
+  :unity_test_time: 0
+- :test: test_Shell_getChar_Tab
+  :line: 46
+  :message: ''
+  :unity_test_time: 0
+- :test: test_Shell_getChar_Esc
+  :line: 53
+  :message: ''
+  :unity_test_time: 0
+- :test: test_Shell_getChar_Esc2
+  :line: 57
+  :message: ''
+  :unity_test_time: 0
+- :test: test_Shell_getChar_LedCmd
+  :line: 63
+  :message: ''
+  :unity_test_time: 0
+- :test: test_Shell_getChar_Backspace
+  :line: 77
+  :message: ''
+  :unity_test_time: 0
+- :test: test_Shell_getChar_ArrowUp
+  :line: 82
+  :message: ''
+  :unity_test_time: 0
+- :test: test_Shell_getChar_ArrowDown
+  :line: 90
+  :message: ''
+  :unity_test_time: 0
+:failures: []
+:ignores: []
+:counts:
+  :total: 11
+  :passed: 11
+  :failed: 0
+  :ignored: 0
+:stdout:
+- "? Welcome to shell version: SHELL_FW_V0.1.0"
+- "? Type <help> to show all the commands"
+- "> "
+- ''
+- ''
+- "> "
+- h
+- "\b \bh"
+- ''
+- ''
+- "> "
+- "led ?\0"
+- ''
+- "> "
+:time: 0.046571000000085405

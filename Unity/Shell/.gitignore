@@ -65,3 +65,4 @@ Thumbs.db
 **/.settings/
 **/.test/
 **/build_test/
+/.metadata/

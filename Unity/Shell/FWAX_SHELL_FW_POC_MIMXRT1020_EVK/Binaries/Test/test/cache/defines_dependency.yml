@@ -1,0 +1,7 @@
+---
+Binaries/Test/test/mocks/mock_shellUtils.c:
+- TEST
+Sources/App/Device/Components/Shell/Middleware/shell.c:
+- TEST
+Sources/App/Device/Components/Shell/Utils/shellUtils.c:
+- TEST
