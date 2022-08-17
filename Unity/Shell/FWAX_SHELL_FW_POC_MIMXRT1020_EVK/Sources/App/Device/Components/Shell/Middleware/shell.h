@@ -12,11 +12,12 @@
 /****************************************************************************
  * Include Files
  ****************************************************************************/
-#ifdef TEST
+#ifdef TARGET_MCU
+#include "fsl_debug_console.h"
+
+#else
 #include <stdint.h>
 #include <stdio.h>
-#else
-#include "fsl_debug_console.h"
 #endif
 
 /****************************************************************************
@@ -30,7 +31,7 @@
 #define SHELL_STATUS    "? "
 #define SHELL_HELP      "| "
 #define CRLF            "\r\n"
-#ifndef TEST
+#ifdef TARGET_MCU
 #define SHELL_PRINTF(fmt, ...)      PRINTF(fmt, ##__VA_ARGS__);
 #else
 #define SHELL_PRINTF(fmt, ...)      printf(fmt, ##__VA_ARGS__);

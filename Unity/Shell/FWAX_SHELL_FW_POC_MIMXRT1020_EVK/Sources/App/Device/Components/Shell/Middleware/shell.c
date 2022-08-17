@@ -10,18 +10,19 @@
  * Include Files
  ****************************************************************************/
 
-#ifndef TEST
+#ifdef TARGET_MCU
 #include "fsl_debug_console.h"	//TODO: move the hardware dependencies to shellSetup.c
 #include <Types.h>
+#else
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 #endif
 
 #include "shell.h"
-#include "shellCommands.h"
-#include "shellUtils.h"
-#include <stdbool.h>
+#include "../Commands/shellCommands.h"
+#include "../Utils/shellUtils.h"
 #include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 /****************************************************************************
  * Private Definitions
@@ -82,7 +83,7 @@ static void commandParser( uint8_t *cmd, uint16_t size ) {
     memset(&mCommandBuffer, 0, sizeof(mCommandBuffer));
 
     /* add command to the history */
-    ShellUtils_addHistory(mShellBuffer);
+    ShellUtils_addHistory((char*)mShellBuffer);
 
     /* find the root command terminator (space) */
     while (mCommandPtr < size) {

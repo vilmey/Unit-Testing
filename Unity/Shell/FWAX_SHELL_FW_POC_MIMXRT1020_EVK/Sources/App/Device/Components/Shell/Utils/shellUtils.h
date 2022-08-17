@@ -13,7 +13,7 @@
  * Include Files
  ****************************************************************************/
 #include <stdbool.h>
-#ifdef TEST
+#ifndef TARGET_MCU
 #include <stdint.h>
 #include <stdio.h>
 #else

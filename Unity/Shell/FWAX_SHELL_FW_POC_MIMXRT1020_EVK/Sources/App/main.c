@@ -6,7 +6,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
-#ifndef UNIT_TESTING
+
+#ifdef TARGET_MCU
 
 #include "fsl_device_registers.h"
 #include "fsl_debug_console.h"
@@ -15,6 +16,18 @@
 #include "board.h"
 #include "shell.h"
 #include "shellCommands.h"
+
+#endif  /* END TARGET_MCU*/
+
+#ifdef TARGET_HOST
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "Device/Components/Shell/Middleware/shell.h"
+#include "Device/Components/Shell/Commands/shellCommands.h"
+
+#endif  /* END TARGET_HOST*/
+
 
 /*******************************************************************************
  * Definitions
@@ -31,22 +44,27 @@
  * @brief Main function
  */
 int main(void) {
-	char ch;
+
+
+#ifdef TARGET_MCU
 
 	/* Init board hardware. */
 	BOARD_ConfigMPU();
 	BOARD_InitBootPins();
 	BOARD_InitBootClocks();
 	BOARD_InitDebugConsole();
+#endif /* END TARGET_MCU */
 
-	PRINTF("\033c");			/* Clean the terminal. */
+	SHELL_PRINTF("\033c");			/* Clean the terminal. */
 
 	Shell_init(ShellCommands_callback); 	/* Initialization of the shell with the callback. */
 
 	while (1) {
-		Shell_getChar(GETCHAR());	/* Sending characters to the shell. */
+#ifdef TARGET_MCU
+		Shell_getChar(GETCHAR());	/* Sending characters to the shell MCU. */
+#else
+        Shell_getChar(getc(stdin)); /* Sending characters to the shell HOST. */
+#endif
 
 	}
 }
-
-#endif

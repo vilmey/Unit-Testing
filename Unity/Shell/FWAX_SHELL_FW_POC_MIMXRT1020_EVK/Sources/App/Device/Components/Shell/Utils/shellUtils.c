@@ -11,13 +11,13 @@
  ****************************************************************************/
 #include <string.h>
 #include "shellUtils.h"
-#include "shellCommands.h"
+#include "../Commands/shellCommands.h"
 
+#ifdef TARGET_MCU
+#include <Types.h>
+#else
 #include <stdio.h>
 #include <stdlib.h>
-
-#ifndef TEST
-#include <Types.h>
 #endif
 
 /****************************************************************************

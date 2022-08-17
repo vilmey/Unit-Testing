@@ -11,7 +11,10 @@
  ****************************************************************************/
 #include "shellCommands.h"
 #include <string.h>
+
+#ifndef TARGET_MCU
 #include <stdlib.h>
+#endif
 
 /****************************************************************************
  * Private Types
@@ -101,13 +104,13 @@ void ShellCommands_callback( uint8_t *cmd, uint16_t argc, uint8_t **argv ) {
             uint8_t led = (uint8_t) strtol((const char*) argv[0], NULL, 10);
             uint8_t state = (uint8_t) strtol((const char*) argv[1], NULL, 10);
 
-            if (strcmp("off", argv[1]) == 0) state = 0;
+            if (strcmp("off", (char *)argv[1]) == 0) state = 0;
 
-            if (strcmp("on", argv[1]) == 0) state = 1;
+            if (strcmp("on", (char *)argv[1]) == 0) state = 1;
 
-            if (strcmp("bl1", argv[1]) == 0) state = 2;
+            if (strcmp("bl1", (char *)argv[1]) == 0) state = 2;
 
-            if (strcmp("bl2", argv[1]) == 0) state = 3;
+            if (strcmp("bl2", (char *)argv[1]) == 0) state = 3;
 
             if (led >= 0 && led < 4) {
                 if (state >= 0 && state < 4) {
